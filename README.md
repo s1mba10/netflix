@@ -1,95 +1,73 @@
-<div align="center">
-  <a href="http://netflix-clone-with-tmdb-using-react-mui.vercel.app/">
-    <img src="./public/assets/netflix-logo.png" alt="Logo" width="100" height="32">
-  </a>
 
-  <h3 align="center">Netflix Clone</h3>
+# DevSecOps Netflix Clone Project
 
-  <p align="center">
-    <a href="https://netflix-clone-react-typescript.vercel.app/">View Demo</a>
-    ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Request Feature</a>
-  </p>
-</div>
+This repository contains the source code and configuration files for a DevSecOps project that deploys a clone of the Netflix website. The project incorporates various DevSecOps practices and tools to ensure the security and reliability of the deployed application. The primary technologies used in this project are Docker, Kubernetes, ArgoCD, Helm, SonarQube, Trivy, Jenkins, AWS EKS, and AWS EC2. Below, you'll find an overview of the project and instructions for setting up and using it.
 
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#prerequests">Prerequests</a>
-    </li>
-    <li>
-      <a href="#which-features-this-project-deals-with">Which features this project deals with</a>
-    </li>
-    <li><a href="#third-party-libraries-used-except-for-react-and-rtk">Third Party libraries used except for React and RTK</a></li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-  </ol>
-</details>
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Prerequisites](#prerequisites)
+- [Installation and Setup](#installation-and-setup)
+- [Usage](#usage)
 
-<br />
+## Project Overview
 
-<div align="center">
-  <img src="./public/assets/home-page.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Home Page</p>
-  <img src="./public/assets/mini-portal.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Mini Portal</p>
-  <img src="./public/assets/detail-modal.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Detail Modal</p>
-  <img src="./public/assets/grid-genre.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Grid Genre Page</p>
-  <img src="./public/assets/watch.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Watch Page with customer contol bar</p>
-</div>
+The DevSecOps Netflix Clone project aims to create a replica of the Netflix website and demonstrate DevSecOps principles by incorporating security checks, automation, and monitoring into the deployment process. Key components of the project include:
 
-## Prerequests
+1. **Netflix Clone Website**: The main application, a clone of the Netflix website.
 
-- Create an account if you don't have on [TMDB](https://www.themoviedb.org/).
-  Because I use its free API to consume movie/tv data.
-- And then follow the [documentation](https://developers.themoviedb.org/3/getting-started/introduction) to create API Key
-- Finally, if you use v3 of TMDB API, create a file named `.env`, and copy and paste the content of `.env.example`.
-  And then paste the API Key you just created.
+2. **Jenkins Pipeline**: Automation of the deployment process using Jenkins, enabling continuous integration and continuous deployment (CI/CD).
 
-## Which features this project deal with
+3. **SonarQube**: Integration of SonarQube for static code analysis to identify and address vulnerabilities in the application code.
 
-- How to create and use [Custom Hooks](https://reactjs.org/docs/hooks-custom.html)
-- How to use [Context](https://reactjs.org/docs/context.html) and its provider
-- How to use lazy and Suspense for [Code-Splitting](https://reactjs.org/docs/code-splitting.html)
-- How to use a new [lazy](https://reactrouter.com/en/main/route/lazy) feature of react-router to reduce bundle size.
-- How to use data [loader](https://reactrouter.com/en/main/route/loader) of react-router, and how to use redux dispatch in the loader to fetch data before rendering component.
-- How to use [Portal](https://reactjs.org/docs/portals.html)
-- How to use [Fowarding Refs](https://reactjs.org/docs/forwarding-refs.html) to make components reusuable
-- How to create and use [HOC](https://reactjs.org/docs/higher-order-components.html)
-- How to customize default theme of [MUI](https://mui.com/)
-- How to use [RTK](https://redux-toolkit.js.org/introduction/getting-started)
-- How to use [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
-- How to customize default classname of [MUI](https://mui.com/material-ui/experimental-api/classname-generator)
-- Infinite Scrolling(using [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API))
-- How to make awesome carousel using [slick-carousel](https://react-slick.neostack.com)
+4. **Prometheus and Grafana**: Monitoring infrastructure components, Jenkins, and the application itself.
 
-## Third Party libraries used except for React and RTK
+5. **Docker and Kubernetes**: Containerization of the application and management of containers in a Kubernetes cluster (AWS EKS).
 
-- [react-router-dom@v6.9](https://reactrouter.com/en/main)
-- [MUI(Material UI)](https://mui.com/)
-- [framer-motion](https://www.framer.com/docs/)
-- [video.js](https://videojs.com)
-- [react-slick](https://react-slick.neostack.com/)
+6. **ArgoCD**: GitOps tool for declarative, automated deployment and management of Kubernetes resources.
 
-## Install with Docker
+7. **Trivy**: Scanning Docker images for vulnerabilities to enhance container security.
 
-```sh
-docker build --build-arg TMDB_V3_API_KEY=your_api_key_here -t netflix-clone .
+8. **AWS EC2**: Used for hosting various components and infrastructure.
 
-docker run --name netflix-clone-website --rm -d -p 80:80 netflix-clone
-```
+## Prerequisites
 
-## Todo
+Before you can get started with this project, you'll need the following prerequisites:
 
-- Make the animation of video card portal more similar to Netflix.
-- Improve performance. I am using `context` and `provider` but all components subscribed to the context's value are re-rendered. These re-renders happen even if the part of the value is not used in render of the component. there are [several ways](https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/) to prevent the re-renders from these behaviours. In addition to them, there may be several performance issues.
-- Replace bundler([Vite](https://vitejs.dev/guide)) with [Turbopack](https://turbo.build/pack/docs/why-turbopack). Turbopack is introduced in Next.js conf recently. It's very fast but it's nor ready to use right now. it just support Next.js, and they plan to support all others as soon as possible. so if it's ready to use, replace [Vite](https://vitejs.dev/guide) with [Turbopack](https://turbo.build/pack/docs/why-turbopack).
-- Add accessibilities for better UX.
-- Add Tests.
+- AWS Account: To deploy resources on AWS, including EKS and EC2 instances.
+- Docker: For building and running containers.
+- kubectl: The Kubernetes command-line tool for interacting with your EKS cluster.
+- Helm: The package manager for Kubernetes.
+- ArgoCD: Installed and configured for GitOps.
+- Jenkins: Installed and configured with appropriate plugins.
+- SonarQube: Configured and integrated with the Jenkins pipeline.
+- Prometheus and Grafana: Installed and configured for monitoring.
+- Trivy: Installed for vulnerability scanning.
+
+## Installation and Setup
+
+To set up and deploy the Netflix Clone project, follow these steps:
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/yourusername/DevSecOps-Netflix-Clone.git
+   cd DevSecOps-Netflix-Clone
+   ```
+
+2. Set up your AWS infrastructure, including EKS and EC2 instances.
+
+3. Build and push Docker images for the Netflix Clone and any other necessary components.
+
+4. Configure Jenkins with your project's settings, including your AWS and Docker credentials.
+
+5. Set up SonarQube, Prometheus, and Grafana, and configure them to work with Jenkins.
+
+6. Create a Kubernetes cluster using AWS EKS.
+
+7. Install ArgoCD and configure it to work with your Git repository.
+
+8. Deploy the project using ArgoCD and monitor the deployment in Jenkins and Grafana.
+
+## Usage
+
+Once the project is set up and deployed, you can access the Netflix Clone website and monitor the deployment and infrastructure using Prometheus and Grafana. The Jenkins pipeline will automate the deployment process, and SonarQube will perform static code analysis to enhance the security of the application.
