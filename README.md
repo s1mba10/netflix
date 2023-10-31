@@ -9,8 +9,7 @@ This repository contains the source code and configuration files for a DevSecOps
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Prerequisites](#prerequisites)
-- [Installation and Setup](#installation-and-setup)
-- [Usage](#usage)
+- [Getting started](#getting-started)
 
 ## Project Overview
 
