@@ -2,7 +2,7 @@
 # DevSecOps Netflix Clone Project
 
 This repository contains the source code and configuration files for a DevSecOps project that deploys a clone of the Netflix website. The project incorporates various DevSecOps practices and tools to ensure the security and reliability of the deployed application. The primary technologies used in this project are Docker, Kubernetes, ArgoCD, Helm, SonarQube, Trivy, Jenkins, AWS EKS, and AWS EC2. Below, you'll find an overview of the project and instructions for setting up and using it.
-![Click to see more](https://youtu.be/FWR2DMSMY2A)<br/>
+ <a href="https://youtu.be/FWR2DMSMY2A">Click to see more</a><br/>
 
 ![ezgif com-video-to-gif](https://github.com/s1mba10/netflix/assets/101098236/c0640755-a073-4121-b3e5-ba473f43e7aa)
 
